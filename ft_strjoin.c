@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cwathits <cwathits@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cwathits <chanatip3524@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/15 21:53:34 by cwathits          #+#    #+#             */
-/*   Updated: 2026/10/15 21:53:34 by cwathits         ###   ########.fr       */
+/*   Updated: 2026/10/19 01:51:07 by cwathits         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,6 @@ char	*ft_strjoin(char const *s1, char const *s2)
 		return (NULL);
 	ft_memcpy(joined, s1, len1);
 	ft_memcpy(joined + len1, s2, len2 + 1);
+	joined[len1 + len2] = '\0';
 	return (joined);
 }

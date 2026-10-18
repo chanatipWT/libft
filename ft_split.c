@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cwathits <cwathits@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cwathits <chanatip3524@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/15 21:53:34 by cwathits          #+#    #+#             */
-/*   Updated: 2026/10/15 21:53:34 by cwathits         ###   ########.fr       */
+/*   Updated: 2026/10/19 01:58:26 by cwathits         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static size_t	ft_count_words(char const *s, char c)
+static size_t	count_words(char const *s, char c)
 {
 	size_t	count;
 	size_t	i;
@@ -33,7 +33,7 @@ static size_t	ft_count_words(char const *s, char c)
 	return (count);
 }
 
-static char	**ft_free_split(char **arr, size_t count)
+static int	free_word_array(char **arr, size_t count)
 {
 	while (count > 0)
 	{
@@ -41,10 +41,10 @@ static char	**ft_free_split(char **arr, size_t count)
 		free(arr[count]);
 	}
 	free(arr);
-	return (NULL);
+	return (0);
 }
 
-static int	ft_fill_split(char **res, char const *s, char c)
+static int	extract_words(char **res, char const *s, char c)
 {
 	size_t	i;
 	size_t	w_len;
@@ -63,7 +63,7 @@ static int	ft_fill_split(char **res, char const *s, char c)
 				w_len++;
 			res[idx] = ft_substr(s, (unsigned int)i, w_len);
 			if (!res[idx])
-				return (ft_free_split(res, idx), 0);
+				return (free_word_array(res, idx));
 			idx++;
 			i += w_len;
 		}
@@ -79,11 +79,11 @@ char	**ft_split(char const *s, char c)
 
 	if (!s)
 		return (NULL);
-	words = ft_count_words(s, c);
+	words = count_words(s, c);
 	res = (char **)malloc(sizeof(char *) * (words + 1));
 	if (!res)
 		return (NULL);
-	if (!ft_fill_split(res, s, c))
+	if (!extract_words(res, s, c))
 		return (NULL);
 	return (res);
 }

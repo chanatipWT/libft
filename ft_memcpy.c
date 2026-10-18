@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cwathits <cwathits@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cwathits <chanatip3524@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/15 21:53:34 by cwathits          #+#    #+#             */
-/*   Updated: 2026/10/15 21:53:34 by cwathits         ###   ########.fr       */
+/*   Updated: 2026/10/19 01:43:44 by cwathits         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 	size_t				i;
 
 	if (!dest && !src)
-		return (NULL);
+		return (dest);
 	d = (unsigned char *)dest;
 	s = (const unsigned char *)src;
 	i = 0;
